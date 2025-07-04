@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/waveformLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- LineChart for waveform -->
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/lineChart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#FFFFFF" />
+
+    <!-- Current values -->
+    <TextView
+        android:id="@+id/tvCurrentA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current A:"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        />
+
+    <TextView
+        android:id="@+id/tvCurrentB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current B:"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvCurrentC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current C:"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvFrequency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Frequency: 60 Hz"
+        android:textSize="16sp"
+        android:paddingTop="8dp" />
+
+</LinearLayout>
+
