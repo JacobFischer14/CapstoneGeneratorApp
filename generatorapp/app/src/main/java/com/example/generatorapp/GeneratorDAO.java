@@ -8,15 +8,18 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GeneratorDAO {
+public class GeneratorDAO
+{
     private SQLiteDatabase db;
 
-    public GeneratorDAO(Context context) {
+    public GeneratorDAO(Context context)
+    {
         GeneratorDBHelper helper = new GeneratorDBHelper(context);
         db = helper.getWritableDatabase();
     }
 
-    public void insert(Generator g) {
+    public void insert(Generator g)
+    {
         ContentValues cv = new ContentValues();
         cv.put("model", g.getModelNumber());
         cv.put("currentA", g.getCurrentA());
@@ -27,10 +30,12 @@ public class GeneratorDAO {
         db.insert("generator", null, cv);
     }
 
-    public List<Generator> getAll() {
+    public List<Generator> getAll()
+    {
         List<Generator> list = new ArrayList<>();
         Cursor cursor = db.query("generator", null, null, null, null, null, null);
-        while (cursor.moveToNext()) {
+        while (cursor.moveToNext())
+        {
             list.add(new Generator(
                     cursor.getInt(0),
                     cursor.getString(1),
@@ -43,7 +48,8 @@ public class GeneratorDAO {
         return list;
     }
 
-    public void update(Generator g) {
+    public void update(Generator g)
+    {
         ContentValues cv = new ContentValues();
         cv.put("model", g.getModelNumber());
         cv.put("currentA", g.getCurrentA());
@@ -53,7 +59,8 @@ public class GeneratorDAO {
         db.update("generator", cv, "id=?", new String[]{String.valueOf(g.getId())});
     }
 
-    public void delete(int id) {
+    public void delete(int id)
+    {
         db.delete("generator", "id=?", new String[]{String.valueOf(id)});
     }
 

@@ -6,13 +6,15 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AddGeneratorActivity extends AppCompatActivity {
+public class AddGeneratorActivity extends AppCompatActivity
+{
     private EditText etModel, etCurrentA, etCurrentB, etCurrentC, etFrequency;
     private Button btnSave;
     private GeneratorDAO dao;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_generator);
 
@@ -25,7 +27,8 @@ public class AddGeneratorActivity extends AppCompatActivity {
         EditText etFrequency = findViewById(R.id.etFrequency);
         btnSave = findViewById(R.id.btnSave);
 
-        btnSave.setOnClickListener(v -> {
+        btnSave.setOnClickListener(v ->
+        {
             float etfrequency = Float.parseFloat(etFrequency.getText().toString().trim());
             Generator g = new Generator(0,
                     etModel.getText().toString(),

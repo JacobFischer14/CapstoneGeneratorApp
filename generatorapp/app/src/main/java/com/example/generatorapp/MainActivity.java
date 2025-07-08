@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
     private RecyclerView recyclerView;
     private GeneratorAdapter adapter;
     private GeneratorDAO dao;
@@ -31,20 +32,22 @@ public class MainActivity extends AppCompatActivity {
 
         btnAdd.setOnClickListener(v -> startActivity(new Intent(this, AddGeneratorActivity.class)));
 
-        btnRefresh.setOnClickListener(v -> {
+        btnRefresh.setOnClickListener(v ->
+        {
             // Simulate refresh: reload from DB
             loadGenerators();
-
         });
     }
 
     @Override
-    protected void onResume() {
+    protected void onResume()
+    {
         super.onResume();
         loadGenerators();
     }
 
-    private void loadGenerators() {
+    private void loadGenerators()
+    {
         List<Generator> list = dao.getAll();
         adapter = new GeneratorAdapter(this, list, generator -> selectedGenerator = generator);
         recyclerView.setAdapter(adapter);

@@ -5,14 +5,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class EditGeneratorActivity extends AppCompatActivity {
+public class EditGeneratorActivity extends AppCompatActivity
+{
     private EditText etModel, etCurrentA, etCurrentB, etCurrentC, etFrequency;
     private Button btnUpdate, btnDelete;
     private GeneratorDAO dao;
     private Generator generator;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_generator);  // Make sure this layout doesn't have waveform fields
 
@@ -27,14 +29,17 @@ public class EditGeneratorActivity extends AppCompatActivity {
         btnDelete = findViewById(R.id.btnDelete);
 
         int id = getIntent().getIntExtra("generator_id", -1);
-        for (Generator g : dao.getAll()) {
-            if (g.getId() == id) {
+        for (Generator g : dao.getAll())
+        {
+            if (g.getId() == id)
+            {
                 generator = g;
                 break;
             }
         }
 
-        if (generator != null) {
+        if (generator != null)
+        {
             etModel.setText(generator.getModelNumber());
             etCurrentA.setText(generator.getCurrentA());
             etCurrentB.setText(generator.getCurrentB());
@@ -42,7 +47,8 @@ public class EditGeneratorActivity extends AppCompatActivity {
             etFrequency.setText(String.valueOf(generator.getFrequency()));
         }
 
-        btnUpdate.setOnClickListener(v -> {
+        btnUpdate.setOnClickListener(v ->
+        {
             generator.setModelNumber(etModel.getText().toString());
             generator.setCurrentA(etCurrentA.getText().toString());
             generator.setCurrentB(etCurrentB.getText().toString());
@@ -53,7 +59,8 @@ public class EditGeneratorActivity extends AppCompatActivity {
             finish();
         });
 
-        btnDelete.setOnClickListener(v -> {
+        btnDelete.setOnClickListener(v ->
+        {
             dao.delete(generator.getId());
             finish();
         });

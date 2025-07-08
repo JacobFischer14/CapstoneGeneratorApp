@@ -14,10 +14,12 @@ import androidx.core.content.ContextCompat;
 
 import org.w3c.dom.Text;
 
-public class WaveformActivity extends AppCompatActivity {
+public class WaveformActivity extends AppCompatActivity
+{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waveform_display);
 
@@ -53,7 +55,8 @@ public class WaveformActivity extends AppCompatActivity {
 
         int points = 360;
         float period = 1 / frequency; // in seconds
-        for (int i = 0; i <= points; i++) {
+        for (int i = 0; i <= points; i++)
+        {
             float time = (float) i / points * period; // time in seconds
             float angle = 2 * (float) Math.PI * frequency * time;
             entriesA.add(new Entry(time, (float) (ampA * Math.sin(angle))));
@@ -86,9 +89,11 @@ public class WaveformActivity extends AppCompatActivity {
         lineChart.setData(lineData);
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setValueFormatter(new ValueFormatter() {
+        xAxis.setValueFormatter(new ValueFormatter()
+        {
             @Override
-            public String getFormattedValue(float value) {
+            public String getFormattedValue(float value)
+            {
                 return String.format("%.4f s", value);
             }
         });
@@ -99,10 +104,14 @@ public class WaveformActivity extends AppCompatActivity {
         lineChart.invalidate();
     }
 
-    private float parseFloatOrDefault(String value, float fallback) {
-        try {
+    private float parseFloatOrDefault(String value, float fallback)
+    {
+        try
+        {
             return (value != null && !value.trim().isEmpty()) ? Float.parseFloat(value.trim()) : fallback;
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             return fallback;
         }
     }

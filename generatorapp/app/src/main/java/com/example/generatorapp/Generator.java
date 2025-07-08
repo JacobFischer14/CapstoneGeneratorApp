@@ -1,6 +1,7 @@
 package com.example.generatorapp;
 
-public class Generator {
+public class Generator
+{
     private int id;
     private String modelNumber;
     private String currentA;
@@ -18,16 +19,12 @@ public class Generator {
         this.frequency = frequency;
     }
 
-    public float getFrequency()
-    {
-        return frequency;
-    }
-
     public int getId() { return id; }
     public String getModelNumber() { return modelNumber; }
     public String getCurrentA() { return currentA; }
     public String getCurrentB() { return currentB; }
     public String getCurrentC() { return currentC; }
+    public float getFrequency() { return frequency; }
 
     public void setModelNumber(String modelNumber) { this.modelNumber = modelNumber; }
     public void setCurrentA(String currentA) { this.currentA = currentA; }
