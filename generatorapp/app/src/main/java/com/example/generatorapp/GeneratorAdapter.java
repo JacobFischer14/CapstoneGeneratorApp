@@ -93,12 +93,10 @@ public class GeneratorAdapter extends RecyclerView.Adapter<GeneratorAdapter.View
                     })
                     .show();
         });
-
-
     }
-
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
         return generatorList.size();
     }
 }

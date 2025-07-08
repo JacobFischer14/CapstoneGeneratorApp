@@ -33,5 +33,6 @@ public class Generator {
     public void setCurrentA(String currentA) { this.currentA = currentA; }
     public void setCurrentB(String currentB) { this.currentB = currentB; }
     public void setCurrentC(String currentC) { this.currentC = currentC; }
+    public void setFrequency(float frequency) { this.frequency = frequency; }
 }
 

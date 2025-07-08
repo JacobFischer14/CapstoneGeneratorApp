@@ -6,7 +6,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class EditGeneratorActivity extends AppCompatActivity {
-    private EditText etModel, etCurrentA, etCurrentB, etCurrentC;
+    private EditText etModel, etCurrentA, etCurrentB, etCurrentC, etFrequency;
     private Button btnUpdate, btnDelete;
     private GeneratorDAO dao;
     private Generator generator;
@@ -22,6 +22,7 @@ public class EditGeneratorActivity extends AppCompatActivity {
         etCurrentA = findViewById(R.id.etCurrentA);
         etCurrentB = findViewById(R.id.etCurrentB);
         etCurrentC = findViewById(R.id.etCurrentC);
+        etFrequency = findViewById(R.id.etFrequency);
         btnUpdate = findViewById(R.id.btnUpdate);
         btnDelete = findViewById(R.id.btnDelete);
 
@@ -38,6 +39,7 @@ public class EditGeneratorActivity extends AppCompatActivity {
             etCurrentA.setText(generator.getCurrentA());
             etCurrentB.setText(generator.getCurrentB());
             etCurrentC.setText(generator.getCurrentC());
+            etFrequency.setText(String.valueOf(generator.getFrequency()));
         }
 
         btnUpdate.setOnClickListener(v -> {
@@ -45,6 +47,8 @@ public class EditGeneratorActivity extends AppCompatActivity {
             generator.setCurrentA(etCurrentA.getText().toString());
             generator.setCurrentB(etCurrentB.getText().toString());
             generator.setCurrentC(etCurrentC.getText().toString());
+            float freq = Float.parseFloat(etFrequency.getText().toString().trim());
+            generator.setFrequency(freq);
             dao.update(generator);
             finish();
         });
