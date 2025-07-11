@@ -12,8 +12,6 @@ import com.github.mikephil.charting.formatter.ValueFormatter;
 import java.util.ArrayList;
 import androidx.core.content.ContextCompat;
 
-import org.w3c.dom.Text;
-
 public class WaveformActivity extends AppCompatActivity
 {
 
